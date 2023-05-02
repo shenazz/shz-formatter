@@ -1,7 +1,9 @@
 /**
  * 
  */
-package com.shz.formatter.core;
+package com.shz.formatter.service;
+
+import org.springframework.stereotype.Service;
 
 import com.shz.formatter.model.Email;
 import com.shz.formatter.valueformatter.EmailValueFormatter;
@@ -14,9 +16,10 @@ import com.shz.formatter.valuevalidator.RegexValueValidator;
  * @author shenazz
  *
  */
-public class EmailFormatter extends BaseFormatter<Email> {
+@Service
+public class EmailFormatterService extends BaseFormatterService<Email> {
 
-	public EmailFormatter() {
+	public EmailFormatterService() {
 		super(new RegexValueValidator(new EmptyValueValidator(), "^(.+)@(\\S+)$"), new LowerCaseEmailValueParser(new EmailValueParser()),
 				new EmailValueFormatter());
 	}

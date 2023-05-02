@@ -1,7 +1,9 @@
 /**
  * 
  */
-package com.shz.formatter.core;
+package com.shz.formatter.service;
+
+import org.springframework.stereotype.Service;
 
 import com.shz.formatter.model.Currency;
 import com.shz.formatter.valueformatter.CurrencyValueFormatter;
@@ -14,9 +16,10 @@ import com.shz.formatter.valuevalidator.EmptyValueValidator;
  * @author shenazz
  *
  */
-public class CurrencyFormatter extends BaseFormatter<Currency> {
+@Service
+public class CurrencyFormatterService extends BaseFormatterService<Currency> {
 
-	public CurrencyFormatter() {
+	public CurrencyFormatterService() {
 		super(new CurrencyValueValidator(new EmptyValueValidator()), new UpperCaseCurrCodeValueParser(new CurrencyValueParser()),
 				new CurrencyValueFormatter());
 	}

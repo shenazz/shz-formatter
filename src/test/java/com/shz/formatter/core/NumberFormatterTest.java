@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import com.shz.formatter.model.FormatterResult;
 import com.shz.formatter.model.FormatterResult.ResultStatus;
+import com.shz.formatter.service.NumberFormatterService;
 
 /**
  * @author shenazz
@@ -25,7 +26,7 @@ public class NumberFormatterTest {
 		String input = "1";
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		FormatterResult<Long> result = formatter.parse(input);
 
 		assertEquals(ResultStatus.OK, result.getResultStatus());
@@ -39,7 +40,7 @@ public class NumberFormatterTest {
 		String input = Long.toString(Long.MAX_VALUE);
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		FormatterResult<Long> result = formatter.parse(input);
 
 		//then
@@ -54,7 +55,7 @@ public class NumberFormatterTest {
 		String input = Double.toString(Double.MAX_VALUE);
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		FormatterResult<Long> result = formatter.parse(input);
 
 		assertEquals(ResultStatus.ERROR, result.getResultStatus());
@@ -68,7 +69,7 @@ public class NumberFormatterTest {
 		String input = "AAA";
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		FormatterResult<Long> result = formatter.parse(input);
 
 		//then
@@ -83,7 +84,7 @@ public class NumberFormatterTest {
 		String input = "1";
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -97,7 +98,7 @@ public class NumberFormatterTest {
 		String input = Long.toString(Long.MAX_VALUE);
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -111,7 +112,7 @@ public class NumberFormatterTest {
 		String input = Double.toString(Double.MAX_VALUE);
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -125,7 +126,7 @@ public class NumberFormatterTest {
 		String input = "AAA";
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -139,7 +140,7 @@ public class NumberFormatterTest {
 		String input = "";
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -153,7 +154,7 @@ public class NumberFormatterTest {
 		String input = null;
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -167,7 +168,7 @@ public class NumberFormatterTest {
 		long input = 1l;
 
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		FormatterResult<String> result = formatter.format(input);
 
 		//then
@@ -182,7 +183,7 @@ public class NumberFormatterTest {
 		Long input = null;
 		
 		//when
-		NumberFormatter formatter = new NumberFormatter();
+		NumberFormatterService formatter = new NumberFormatterService();
 		FormatterResult<String> result = formatter.format(input);
 
 		//then
