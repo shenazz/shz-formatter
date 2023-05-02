@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.shz.formatter.model.FormatResult;
+import com.shz.formatter.model.FormatterResult;
 import com.shz.formatter.model.FormatResultStatus;
 import com.shz.formatter.service.NumberFormatterService;
 
@@ -27,7 +27,7 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatResult<Long> result = formatter.parse(input);
+		FormatterResult<Long> result = formatter.parse(input);
 
 		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertEquals(1, result.getResult());
@@ -41,7 +41,7 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatResult<Long> result = formatter.parse(input);
+		FormatterResult<Long> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -56,7 +56,7 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatResult<Long> result = formatter.parse(input);
+		FormatterResult<Long> result = formatter.parse(input);
 
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
@@ -70,7 +70,7 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatResult<Long> result = formatter.parse(input);
+		FormatterResult<Long> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -169,7 +169,7 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatResult<String> result = formatter.format(input);
+		FormatterResult<String> result = formatter.format(input);
 
 		//then
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -184,7 +184,7 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatResult<String> result = formatter.format(input);
+		FormatterResult<String> result = formatter.format(input);
 
 		//then
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());

@@ -4,7 +4,7 @@
 package com.shz.formatter.service;
 
 import com.shz.formatter.exception.InvalidValueException;
-import com.shz.formatter.model.FormatResult;
+import com.shz.formatter.model.FormatterResult;
 import com.shz.formatter.model.FormatResultStatus;
 import com.shz.formatter.valueformatter.ValueFormatter;
 import com.shz.formatter.valueparser.ValueParser;
@@ -29,8 +29,8 @@ public abstract class BaseFormatterService<T> implements Formatter<T> {
 	}
 
 	@Override
-	public FormatResult<T> parse(String inputValue) {
-		FormatResult<T> result = new FormatResult<>();
+	public FormatterResult<T> parse(String inputValue) {
+		FormatterResult<T> result = new FormatterResult<>();
 		try {
 			valueValidator.validate(inputValue);
 
@@ -48,8 +48,8 @@ public abstract class BaseFormatterService<T> implements Formatter<T> {
 	}
 
 	@Override
-	public FormatResult<String> format(T inputValue) {
-		FormatResult<String> result = new FormatResult<>();
+	public FormatterResult<String> format(T inputValue) {
+		FormatterResult<String> result = new FormatterResult<>();
 		try {
 			String formattedValue = this.valueFormatter.format(inputValue);
 

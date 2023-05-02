@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.shz.formatter.model.Currency;
-import com.shz.formatter.model.FormatResult;
+import com.shz.formatter.model.FormatterResult;
 import com.shz.formatter.model.FormatResultStatus;
 import com.shz.formatter.service.CurrencyFormatterService;
 
@@ -29,7 +29,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -47,7 +47,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -64,7 +64,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -81,7 +81,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -98,7 +98,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -113,7 +113,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -128,7 +128,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -143,7 +143,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<Currency> result = formatter.parse(input);
+		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -273,7 +273,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<String> result = formatter.format(currency);
+		FormatterResult<String> result = formatter.format(currency);
 
 		//then
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -288,7 +288,7 @@ public class CurrencyFormatterTest {
 
 		//when
 		CurrencyFormatterService formatter = new CurrencyFormatterService();
-		FormatResult<String> result = formatter.format(currency);
+		FormatterResult<String> result = formatter.format(currency);
 
 		//then
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());

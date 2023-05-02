@@ -9,7 +9,7 @@ import java.util.Objects;
  * @author shenazz
  *
  */
-public class FormatResult<T> {
+public class FormatterResult<T> {
 
 	private T result;
 
@@ -78,7 +78,7 @@ public class FormatResult<T> {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		FormatResult other = (FormatResult) obj;
+		FormatterResult other = (FormatterResult) obj;
 		return Objects.equals(msg, other.msg) && Objects.equals(result, other.result) && status == other.status;
 	}
 

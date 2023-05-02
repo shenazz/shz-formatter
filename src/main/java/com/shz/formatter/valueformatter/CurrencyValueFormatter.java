@@ -18,7 +18,7 @@ public class CurrencyValueFormatter implements ValueFormatter<Currency> {
 		builder.append(inputValue.getValue());
 		if (!EmptyChecker.isEmpty(inputValue.getCode())) {
 			builder.append(" ");
-			builder.append(inputValue.getCode());
+			builder.append(inputValue.getCode().toUpperCase());
 		}
 		return builder.toString();
 	}
