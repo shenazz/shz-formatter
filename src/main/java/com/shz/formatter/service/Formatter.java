@@ -3,7 +3,7 @@
  */
 package com.shz.formatter.service;
 
-import com.shz.formatter.model.FormatterResult;
+import com.shz.formatter.model.FormatResult;
 
 /**
  * @author shenazz
@@ -19,7 +19,7 @@ public interface Formatter<T> {
 	 * 
 	 * @return FormatterResult with result status and the actual result object
 	 */
-	public FormatterResult<T> parse(String input);
+	public FormatResult<T> parse(String input);
 
 	/**
 	 * Returns the String representation of the input object
@@ -29,7 +29,7 @@ public interface Formatter<T> {
 	 * 
 	 * @return FormatterResult with result status and the actual result String
 	 */
-	public FormatterResult<String> format(T input);
+	public FormatResult<String> format(T input);
 
 	/**
 	 * Validates if the input String is a valid representation of the defined type 

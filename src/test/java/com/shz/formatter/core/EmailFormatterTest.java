@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.shz.formatter.model.Email;
-import com.shz.formatter.model.FormatterResult;
-import com.shz.formatter.model.FormatterResult.ResultStatus;
+import com.shz.formatter.model.FormatResult;
+import com.shz.formatter.model.FormatResultStatus;
 import com.shz.formatter.service.EmailFormatterService;
 
 /**
@@ -29,9 +29,9 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<Email> result = formatter.parse(input);
+		FormatResult<Email> result = formatter.parse(input);
 
-		assertEquals(ResultStatus.OK, result.getResultStatus());
+		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertEquals(input, result.getResult().getValue());
 	}
 
@@ -43,9 +43,9 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<Email> result = formatter.parse(input);
+		FormatResult<Email> result = formatter.parse(input);
 
-		assertEquals(ResultStatus.OK, result.getResultStatus());
+		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertEquals(input.toLowerCase(), result.getResult().getValue());
 	}
 
@@ -57,9 +57,9 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<Email> result = formatter.parse(input);
+		FormatResult<Email> result = formatter.parse(input);
 
-		assertEquals(ResultStatus.ERROR, result.getResultStatus());
+		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
 	}
 
@@ -72,9 +72,9 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<Email> result = formatter.parse(input);
+		FormatResult<Email> result = formatter.parse(input);
 
-		assertEquals(ResultStatus.ERROR, result.getResultStatus());
+		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
 	}
 	
@@ -86,9 +86,9 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<Email> result = formatter.parse(input);
+		FormatResult<Email> result = formatter.parse(input);
 
-		assertEquals(ResultStatus.ERROR, result.getResultStatus());
+		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
 	}
 
@@ -159,10 +159,10 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<String> result = formatter.format(input);
+		FormatResult<String> result = formatter.format(input);
 
 		//then
-		assertEquals(ResultStatus.OK, result.getResultStatus());
+		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertEquals(emailValue, result.getResult());
 	}
 
@@ -174,10 +174,10 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<String> result = formatter.format(input);
+		FormatResult<String> result = formatter.format(input);
 
 		//then
-		assertEquals(ResultStatus.OK, result.getResultStatus());
+		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertNull(result.getResult());
 	}
 
@@ -189,10 +189,10 @@ public class EmailFormatterTest {
 
 		//when
 		EmailFormatterService formatter = new EmailFormatterService();
-		FormatterResult<String> result = formatter.format(input);
+		FormatResult<String> result = formatter.format(input);
 
 		//then
-		assertEquals(ResultStatus.ERROR, result.getResultStatus());
+		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
 	}
 }

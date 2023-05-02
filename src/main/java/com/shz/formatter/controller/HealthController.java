@@ -5,7 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shz.formatter.model.ServiceStatus;
+import com.shz.formatter.model.ServiceHealth;
+import com.shz.formatter.model.ServiceHealthStatus;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -24,8 +25,8 @@ public class HealthController {
 	@GetMapping(path = "/health", produces = "application/health+json")
 	@ApiOperation(value = "Verify that the API is available", notes = "Used by monitoring tools to check the health status of this API.")
 	public ResponseEntity<Object> healthCheck() {
-		ServiceStatus status = getStatus();
-		if (status.getStatus() == ServiceStatus.Status.fail) {
+		ServiceHealth status = getStatus();
+		if (status.getStatus() == ServiceHealthStatus.FAIL) {
 			return new ResponseEntity<>(getStatus(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		return new ResponseEntity<>(getStatus(), HttpStatus.OK);
@@ -36,8 +37,8 @@ public class HealthController {
 	 * 
 	 * @return
 	 */
-	public ServiceStatus getStatus() {
-		ServiceStatus status = new ServiceStatus();
+	public ServiceHealth getStatus() {
+		ServiceHealth status = new ServiceHealth();
 		return status;
 	}
 }

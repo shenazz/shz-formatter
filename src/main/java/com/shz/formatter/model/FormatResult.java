@@ -9,15 +9,11 @@ import java.util.Objects;
  * @author shenazz
  *
  */
-public class FormatterResult<T> {
-
-	public enum ResultStatus {
-		OK, WARN, ERROR, SO_FAR_SO_GOOD
-	}
+public class FormatResult<T> {
 
 	private T result;
 
-	private ResultStatus resultStatus;
+	private FormatResultStatus status;
 
 	private String msg;
 
@@ -39,16 +35,16 @@ public class FormatterResult<T> {
 	/**
 	 * @return the resultStatus
 	 */
-	public ResultStatus getResultStatus() {
-		return resultStatus;
+	public FormatResultStatus getStatus() {
+		return status;
 	}
 
 	/**
 	 * @param resultStatus
 	 *            the resultStatus to set
 	 */
-	public void setResultStatus(ResultStatus resultStatus) {
-		this.resultStatus = resultStatus;
+	public void setStatus(FormatResultStatus status) {
+		this.status = status;
 	}
 
 	/**
@@ -68,7 +64,7 @@ public class FormatterResult<T> {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(msg, result, resultStatus);
+		return Objects.hash(msg, result, status);
 	}
 
 	@Override
@@ -82,13 +78,13 @@ public class FormatterResult<T> {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		FormatterResult other = (FormatterResult) obj;
-		return Objects.equals(msg, other.msg) && Objects.equals(result, other.result) && resultStatus == other.resultStatus;
+		FormatResult other = (FormatResult) obj;
+		return Objects.equals(msg, other.msg) && Objects.equals(result, other.result) && status == other.status;
 	}
 
 	@Override
 	public String toString() {
-		return "ParseResult [result=" + result + ", resultStatus=" + resultStatus + ", msg=" + msg + "]";
+		return "ParseResult [result=" + result + ", resultStatus=" + status + ", msg=" + msg + "]";
 	}
 
 }

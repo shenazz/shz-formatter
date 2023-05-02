@@ -7,18 +7,9 @@ import java.util.Map;
  * @author shenazz
  *
  */
-public class ServiceStatus {
+public class ServiceHealth {
 
-	public enum Status {
-		/** API is up and running with all functions */
-		pass,
-		/** API is running but the status needs attention */
-		warn,
-		/** API is experiencing severe problems, services are not working */
-		fail;
-	}
-
-	private Status status;
+	private ServiceHealthStatus status;
 
 	private Map<String, Object> details;
 
@@ -27,15 +18,15 @@ public class ServiceStatus {
 	/**
 	 * 
 	 */
-	public ServiceStatus() {
-		status = Status.pass;
+	public ServiceHealth() {
+		status = ServiceHealthStatus.PASS;
 		details = new HashMap<>();
 	}
 
 	/**
 	 * @param status
 	 */
-	public ServiceStatus(Status status) {
+	public ServiceHealth(ServiceHealthStatus status) {
 		super();
 		this.status = status;
 	}
@@ -43,7 +34,7 @@ public class ServiceStatus {
 	/**
 	 * @return the status
 	 */
-	public Status getStatus() {
+	public ServiceHealthStatus getStatus() {
 		return status;
 	}
 
@@ -51,7 +42,7 @@ public class ServiceStatus {
 	 * @param status
 	 *            the status to set
 	 */
-	public void setStatus(Status status) {
+	public void setStatus(ServiceHealthStatus status) {
 		this.status = status;
 	}
 

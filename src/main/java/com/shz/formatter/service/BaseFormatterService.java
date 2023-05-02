@@ -4,8 +4,8 @@
 package com.shz.formatter.service;
 
 import com.shz.formatter.exception.InvalidValueException;
-import com.shz.formatter.model.FormatterResult;
-import com.shz.formatter.model.FormatterResult.ResultStatus;
+import com.shz.formatter.model.FormatResult;
+import com.shz.formatter.model.FormatResultStatus;
 import com.shz.formatter.valueformatter.ValueFormatter;
 import com.shz.formatter.valueparser.ValueParser;
 import com.shz.formatter.valuevalidator.ValueValidator;
@@ -29,18 +29,18 @@ public abstract class BaseFormatterService<T> implements Formatter<T> {
 	}
 
 	@Override
-	public FormatterResult<T> parse(String inputValue) {
-		FormatterResult<T> result = new FormatterResult<>();
+	public FormatResult<T> parse(String inputValue) {
+		FormatResult<T> result = new FormatResult<>();
 		try {
 			valueValidator.validate(inputValue);
 
 			T parsedObject = valueParser.parse(inputValue);
 
-			result.setResultStatus(ResultStatus.OK);
+			result.setStatus(FormatResultStatus.OK);
 			result.setResult(parsedObject);
 			result.setMsg("Parsing successful");
 		} catch (Exception e) {
-			result.setResultStatus(ResultStatus.ERROR);
+			result.setStatus(FormatResultStatus.ERROR);
 			result.setMsg(getErrorMsg(e));
 		}
 
@@ -48,16 +48,16 @@ public abstract class BaseFormatterService<T> implements Formatter<T> {
 	}
 
 	@Override
-	public FormatterResult<String> format(T inputValue) {
-		FormatterResult<String> result = new FormatterResult<>();
+	public FormatResult<String> format(T inputValue) {
+		FormatResult<String> result = new FormatResult<>();
 		try {
 			String formattedValue = this.valueFormatter.format(inputValue);
 
-			result.setResultStatus(ResultStatus.OK);
+			result.setStatus(FormatResultStatus.OK);
 			result.setResult(formattedValue);
 			result.setMsg("Formatting successful");
 		} catch (Exception e) {
-			result.setResultStatus(ResultStatus.ERROR);
+			result.setStatus(FormatResultStatus.ERROR);
 			result.setMsg(getErrorMsg(e));
 		}
 		return result;

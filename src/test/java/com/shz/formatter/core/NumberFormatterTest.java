@@ -9,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-import com.shz.formatter.model.FormatterResult;
-import com.shz.formatter.model.FormatterResult.ResultStatus;
+import com.shz.formatter.model.FormatResult;
+import com.shz.formatter.model.FormatResultStatus;
 import com.shz.formatter.service.NumberFormatterService;
 
 /**
@@ -27,9 +27,9 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatterResult<Long> result = formatter.parse(input);
+		FormatResult<Long> result = formatter.parse(input);
 
-		assertEquals(ResultStatus.OK, result.getResultStatus());
+		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertEquals(1, result.getResult());
 	}
 
@@ -41,10 +41,10 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatterResult<Long> result = formatter.parse(input);
+		FormatResult<Long> result = formatter.parse(input);
 
 		//then
-		assertEquals(ResultStatus.OK, result.getResultStatus());
+		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertEquals(Long.MAX_VALUE, result.getResult());
 	}
 
@@ -56,9 +56,9 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatterResult<Long> result = formatter.parse(input);
+		FormatResult<Long> result = formatter.parse(input);
 
-		assertEquals(ResultStatus.ERROR, result.getResultStatus());
+		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
 	}
 
@@ -70,10 +70,10 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatterResult<Long> result = formatter.parse(input);
+		FormatResult<Long> result = formatter.parse(input);
 
 		//then
-		assertEquals(ResultStatus.ERROR, result.getResultStatus());
+		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
 	}
 
@@ -132,7 +132,7 @@ public class NumberFormatterTest {
 		//then
 		assertFalse(result);
 	}
-	
+
 	@Test
 	public void given_inputIsEmpty_when_isValid_then_error() {
 
@@ -146,7 +146,7 @@ public class NumberFormatterTest {
 		//then
 		assertFalse(result);
 	}
-	
+
 	@Test
 	public void given_inputIsNull_when_isValid_then_error() {
 
@@ -169,10 +169,10 @@ public class NumberFormatterTest {
 
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatterResult<String> result = formatter.format(input);
+		FormatResult<String> result = formatter.format(input);
 
 		//then
-		assertEquals(ResultStatus.OK, result.getResultStatus());
+		assertEquals(FormatResultStatus.OK, result.getStatus());
 		assertEquals("1", result.getResult());
 	}
 
@@ -181,13 +181,13 @@ public class NumberFormatterTest {
 
 		//given
 		Long input = null;
-		
+
 		//when
 		NumberFormatterService formatter = new NumberFormatterService();
-		FormatterResult<String> result = formatter.format(input);
+		FormatResult<String> result = formatter.format(input);
 
 		//then
-		assertEquals(ResultStatus.ERROR, result.getResultStatus());
+		assertEquals(FormatResultStatus.ERROR, result.getStatus());
 		assertTrue(!result.getMsg().isBlank());
 	}
 }
