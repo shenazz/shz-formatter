@@ -15,4 +15,12 @@ server:
   servlet:
     contextPath: /shz-formatter-svc/
   max-http-header-size: 20000
+  
+app:
+  currency:
+    exchange-rate-client:
+      url: https://api.apilayer.com/exchangerates_data/latest?base={base}&symbols={symbols}
+      apikey: dummy
+      supported-symbols: USD,EUR,GBP,INR
+      default-base-symbol: EUR
 

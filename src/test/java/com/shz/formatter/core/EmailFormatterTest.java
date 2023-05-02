@@ -11,9 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.shz.formatter.model.Email;
-import com.shz.formatter.model.FormatterResult;
 import com.shz.formatter.model.FormatResultStatus;
-import com.shz.formatter.service.EmailFormatterService;
+import com.shz.formatter.model.FormatterResult;
 
 /**
  * @author shenazz
@@ -28,7 +27,7 @@ public class EmailFormatterTest {
 		String input = "aaa@aaa.com";
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<Email> result = formatter.parse(input);
 
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -42,7 +41,7 @@ public class EmailFormatterTest {
 		String input = "AAa@aAa.com";
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<Email> result = formatter.parse(input);
 
 		assertEquals(FormatResultStatus.OK, result.getStatus());
@@ -56,7 +55,7 @@ public class EmailFormatterTest {
 		String input = "";
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<Email> result = formatter.parse(input);
 
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -71,7 +70,7 @@ public class EmailFormatterTest {
 		String input = null;
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<Email> result = formatter.parse(input);
 
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -85,7 +84,7 @@ public class EmailFormatterTest {
 		String input = "AAA";
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<Email> result = formatter.parse(input);
 
 		assertEquals(FormatResultStatus.ERROR, result.getStatus());
@@ -100,7 +99,7 @@ public class EmailFormatterTest {
 		String input = "aaa@aaa.com";
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -114,7 +113,7 @@ public class EmailFormatterTest {
 		String input = null;
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -128,7 +127,7 @@ public class EmailFormatterTest {
 		String input = "";
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -142,7 +141,7 @@ public class EmailFormatterTest {
 		String input = "AAA";
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -158,7 +157,7 @@ public class EmailFormatterTest {
 		input.setValue(emailValue);
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<String> result = formatter.format(input);
 
 		//then
@@ -173,7 +172,7 @@ public class EmailFormatterTest {
 		Email input = new Email();
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<String> result = formatter.format(input);
 
 		//then
@@ -188,7 +187,7 @@ public class EmailFormatterTest {
 		Email input = null;
 
 		//when
-		EmailFormatterService formatter = new EmailFormatterService();
+		EmailFormatter formatter = new EmailFormatter();
 		FormatterResult<String> result = formatter.format(input);
 
 		//then

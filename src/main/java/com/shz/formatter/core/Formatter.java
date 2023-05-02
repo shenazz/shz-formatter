@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.shz.formatter.service;
+package com.shz.formatter.core;
 
 import com.shz.formatter.model.FormatterResult;
 

@@ -11,9 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.shz.formatter.model.Currency;
-import com.shz.formatter.model.FormatterResult;
 import com.shz.formatter.model.FormatResultStatus;
-import com.shz.formatter.service.CurrencyFormatterService;
+import com.shz.formatter.model.FormatterResult;
 
 /**
  * @author shenazz
@@ -28,7 +27,7 @@ public class CurrencyFormatterTest {
 		String input = "10.5 EUR";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -46,7 +45,7 @@ public class CurrencyFormatterTest {
 		String input = "10.5 eur";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -63,7 +62,7 @@ public class CurrencyFormatterTest {
 		String input = "  10.5 EUR  ";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -80,7 +79,7 @@ public class CurrencyFormatterTest {
 		String input = "  10.5      EUR  ";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -97,7 +96,7 @@ public class CurrencyFormatterTest {
 		String input = "10.5 ";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -112,7 +111,7 @@ public class CurrencyFormatterTest {
 		String input = "AAA EUR";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -127,7 +126,7 @@ public class CurrencyFormatterTest {
 		String input = "";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -142,7 +141,7 @@ public class CurrencyFormatterTest {
 		String input = null;
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<Currency> result = formatter.parse(input);
 
 		//then
@@ -157,7 +156,7 @@ public class CurrencyFormatterTest {
 		String input = "10.5 EUR";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -172,7 +171,7 @@ public class CurrencyFormatterTest {
 		String input = "10.5 eur";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -186,7 +185,7 @@ public class CurrencyFormatterTest {
 		String input = "  10.5 EUR  ";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -200,7 +199,7 @@ public class CurrencyFormatterTest {
 		String input = "  10.5      EUR  ";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -214,7 +213,7 @@ public class CurrencyFormatterTest {
 		String input = "10.5 ";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -228,7 +227,7 @@ public class CurrencyFormatterTest {
 		String input = "AAA EUR";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -242,7 +241,7 @@ public class CurrencyFormatterTest {
 		String input = "";
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -256,7 +255,7 @@ public class CurrencyFormatterTest {
 		String input = null;
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		boolean result = formatter.isValidValue(input);
 
 		//then
@@ -272,7 +271,7 @@ public class CurrencyFormatterTest {
 		currency.setCode("EUR");
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<String> result = formatter.format(currency);
 
 		//then
@@ -287,7 +286,7 @@ public class CurrencyFormatterTest {
 		Currency currency = null;
 
 		//when
-		CurrencyFormatterService formatter = new CurrencyFormatterService();
+		CurrencyFormatter formatter = new CurrencyFormatter();
 		FormatterResult<String> result = formatter.format(currency);
 
 		//then

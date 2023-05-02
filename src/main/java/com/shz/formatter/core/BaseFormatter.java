@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.shz.formatter.service;
+package com.shz.formatter.core;
 
 import com.shz.formatter.exception.InvalidValueException;
 import com.shz.formatter.model.FormatterResult;
@@ -14,7 +14,7 @@ import com.shz.formatter.valuevalidator.ValueValidator;
  * @author shenazz
  *
  */
-public abstract class BaseFormatterService<T> implements Formatter<T> {
+public abstract class BaseFormatter<T> implements Formatter<T> {
 
 	protected ValueValidator valueValidator;
 
@@ -22,7 +22,7 @@ public abstract class BaseFormatterService<T> implements Formatter<T> {
 
 	protected ValueFormatter<T> valueFormatter;
 
-	BaseFormatterService(ValueValidator valueValidator, ValueParser<T> valueParser, ValueFormatter<T> valueFormatter) {
+	BaseFormatter(ValueValidator valueValidator, ValueParser<T> valueParser, ValueFormatter<T> valueFormatter) {
 		this.valueValidator = valueValidator;
 		this.valueParser = valueParser;
 		this.valueFormatter = valueFormatter;
