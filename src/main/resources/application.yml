@@ -20,7 +20,7 @@ app:
   currency:
     exchange-rate-client:
       url: https://api.apilayer.com/exchangerates_data/latest?base={base}&symbols={symbols}
-      apikey: dummy
+      apikey: cJLA8bMJsV7kDaF0kjvZ68Lw5HM4vqJ8
       supported-symbols: USD,EUR,GBP,INR
       default-base-symbol: EUR
 

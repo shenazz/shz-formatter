@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
-import com.shz.formatter.model.ApiLayerLatestRatesResponse;
+import com.shz.formatter.model.ExchangeRatesResponse;
 import com.shz.formatter.model.Currency;
 
 /**
@@ -50,11 +50,11 @@ public class ExchangeRateClientImpl implements ExchangeRateClient {
 		headers.set("apikey", apikey);
 		HttpEntity<String> entity = new HttpEntity<>(headers);
 
-		ResponseEntity<ApiLayerLatestRatesResponse> response = restTemplate.exchange(url, HttpMethod.GET, entity,
-				ApiLayerLatestRatesResponse.class, currency.getCode(), String.join(",", supportedSymbols));
+		ResponseEntity<ExchangeRatesResponse> response = restTemplate.exchange(url, HttpMethod.GET, entity, ExchangeRatesResponse.class,
+				currency.getCode(), String.join(",", supportedSymbols));
 
 		if (!response.getBody().isSuccess()) {
-			new RuntimeException("Unexpected exception while invoking exchnage rate API");
+			throw new RuntimeException("Unexpected exception while invoking exchange rate API");
 		}
 
 		return response.getBody().getRates();

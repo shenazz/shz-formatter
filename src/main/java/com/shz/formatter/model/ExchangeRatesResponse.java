@@ -9,11 +9,11 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * @author Shenaz Assu
+ * @author shenazz
  *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ApiLayerLatestRatesResponse {
+public class ExchangeRatesResponse {
 
 	private boolean success;
 
@@ -58,13 +58,13 @@ public class ApiLayerLatestRatesResponse {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ApiLayerLatestRatesResponse other = (ApiLayerLatestRatesResponse) obj;
+		ExchangeRatesResponse other = (ExchangeRatesResponse) obj;
 		return Objects.equals(base, other.base) && Objects.equals(rates, other.rates) && success == other.success;
 	}
 
 	@Override
 	public String toString() {
-		return "ApiLayerLatestRatesResponse [success=" + success + ", base=" + base + ", rates=" + rates + "]";
+		return "ExchangeRatesResponse [success=" + success + ", base=" + base + ", rates=" + rates + "]";
 	}
 
 }
