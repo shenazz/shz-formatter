@@ -20,7 +20,7 @@ import com.shz.formatter.exception.InvalidValueException;
 import com.shz.formatter.model.Currency;
 
 /**
- * @author Shenaz Assu
+ * @author shenazz
  *
  */
 @SpringBootTest

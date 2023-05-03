@@ -19,7 +19,7 @@ import com.shz.formatter.model.Currency;
 import com.shz.formatter.service.CurrencyService;
 
 /**
- * @author Shenaz Assu
+ * @author shenazz
  *
  */
 @WebMvcTest(CurrencyController.class)

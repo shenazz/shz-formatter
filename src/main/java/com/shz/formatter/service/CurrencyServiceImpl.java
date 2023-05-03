@@ -16,7 +16,7 @@ import com.shz.formatter.model.FormatResultStatus;
 import com.shz.formatter.model.FormatterResult;
 
 /**
- * @author Shenaz Assu
+ * @author shenazz
  *
  */
 @Service
