@@ -1,5 +1,6 @@
 package com.shz.formatter.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +17,9 @@ import io.swagger.annotations.ApiOperation;
  */
 @RestController
 public class HealthController {
+
+	@Value("${app.health-addl-info}")
+	private String additionalInfo;
 
 	/**
 	 * Returns a status message based on the internal state of the API.
@@ -39,6 +43,7 @@ public class HealthController {
 	 */
 	public ServiceHealth getStatus() {
 		ServiceHealth status = new ServiceHealth();
+		status.getDetails().put("additionalInfo", additionalInfo);
 		return status;
 	}
 }

@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: formatter-config
+data:
+  APP_HEALTH_ADDL_INFO: "Info from ConfigMap"

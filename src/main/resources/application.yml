@@ -11,12 +11,13 @@ spring:
     active: dev
 
 server:
-  port: ${SERVER_PORT:9099}
+  port: 9099
   servlet:
     contextPath: /shz-formatter-svc/
   max-http-header-size: 20000
   
 app:
+  health-addl-info: ${APP_HEALTH_ADDL_INFO:Info from application.yml} 
   currency:
     exchange-rate-client:
       url: https://api.apilayer.com/exchangerates_data/latest?base={base}&symbols={symbols}
